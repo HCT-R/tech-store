@@ -1,20 +1,48 @@
+/* stylelint-disable unknownAtRules */
 /* index.css */
+
+/* 1) Подключаем базовые стили Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 2) Добавляем глобальные базовые стили через @layer base */
 @layer base {
+  /* Определяем CSS-переменные */
   :root {
     --color-light: #ffffff;
     --color-dark: #1a1a1a;
-    /* Другие CSS-переменные */
+    /* Можно добавить дополнительные переменные */
   }
 
+  /* Сброс и базовые стили для body */
   body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
   }
 }
 
-/* Если есть дополнительные кастомные стили, можно добавить их здесь */
+/* 3) Добавляем кастомные компоненты через @layer components */
+@layer components {
+  /* Пример брендовой кнопки, аналогичной стилям на DNS */
+  .btn-brand {
+    @apply bg-[#f7900a] text-white font-semibold py-3 px-6 rounded transition-colors duration-200;
+  }
+  .btn-brand:hover {
+    @apply bg-[#f76b0a];
+  }
+}
+
+/* 4) Если необходимо, можно добавить дополнительные утилиты через @layer utilities */
+/* Например, утилита для фиксированного хедера: */
+@layer utilities {
+  .header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+  }
+}

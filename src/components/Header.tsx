@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { logoutUser } from "../slices/authSlice";
-
-// Импортируем хуки для перевода
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state: RootState) => state.auth.currentUser);
+  const { t, i18n } = useTranslation();
 
-  // Хук для работы с переводами
-  const { i18n } = useTranslation();
-
-  // Функция для смены языка
   const handleLangChange = (lang: string) => {
     i18n.changeLanguage(lang);
   };
@@ -24,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Логотип */}
         <Link to="/" className="text-xl font-bold">
-          Tech Store
+          {t("storeName", "Tech Store")}
         </Link>
 
         {/* Переключатель языков */}
@@ -34,19 +29,21 @@ const Header = () => {
           <button onClick={() => handleLangChange("kk")}>KK</button>
         </div>
 
-        {/* Пример авторизации (необязательно) */}
+        {/* Навигация и авторизация */}
         <nav className="flex space-x-4">
-          <Link to="/catalog">Каталог</Link>
-          <Link to="/cart">Корзина</Link>
+          <Link to="/catalog">{t("catalog", "Каталог")}</Link>
+          <Link to="/cart">{t("cart", "Корзина")}</Link>
           {currentUser ? (
             <>
-              <span>Привет, {currentUser.username}</span>
-              <button onClick={() => dispatch(logoutUser())}>Выйти</button>
+              <span>{t("greeting", "Привет")}, {currentUser.username}</span>
+              <button onClick={() => dispatch(logoutUser())}>
+                {t("logout", "Выйти")}
+              </button>
             </>
           ) : (
             <>
-              <Link to="/login">Вход</Link>
-              <Link to="/register">Регистрация</Link>
+              <Link to="/login">{t("login", "Вход")}</Link>
+              <Link to="/register">{t("register", "Регистрация")}</Link>
             </>
           )}
         </nav>
