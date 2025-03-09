@@ -1,0 +1,32 @@
+// project-root/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    // Разрешает использовать импорты без жёсткой проверки типов у библиотек — ускоряет сборку
+    "skipLibCheck": true,
+    // Чтобы TypeScript понимал импорты вида import x from '...'
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    // Включает строгий режим — настоятельно рекомендуется
+    "strict": true,
+    // Проверка соответствия регистра в именах файлов (полезно для разных ОС)
+    "forceConsistentCasingInFileNames": true,
+    // Тип модуля и способ разрешения
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    // Требуется для корректной работы React 17+ с новым JSX-трансформером
+    "jsx": "react-jsx",
+    // Чтобы TypeScript не генерировал файлы, а работал только на типизацию
+    "noEmit": true,
+    // (Опционально) Если хотите ускорить повторные сборки
+    // "incremental": true,
+    // "composite": true
+  },
+  // Обычный React-проект обычно хранит исходники в папке src
+  "include": ["src"],
+  // Исключаем node_modules
+  "exclude": ["node_modules"]
+}

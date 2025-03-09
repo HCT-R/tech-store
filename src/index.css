@@ -1,0 +1,20 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-light: #ffffff;
+    --color-dark: #1a1a1a;
+    /* Другие CSS-переменные */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+/* Если есть дополнительные кастомные стили, можно добавить их здесь */

@@ -1,0 +1,32 @@
+/* global.css */
+
+/* Класс для "брендовой" кнопки (например, стиль в стиле DNS) */
+.btn-brand {
+    background-color: #f7900a; /* оранжевый цвет */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-brand:hover {
+    background-color: #f76b0a; /* немного темнее при ховере */
+  }
+  
+  /* Пример переопределения стилей заголовков */
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  /* Фиксированный хедер — если захочется, чтобы шапка оставалась сверху */
+  .header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+  }
+  
+  /* Можно добавить дополнительные глобальные стили по необходимости */
+  
